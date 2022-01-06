@@ -23,20 +23,25 @@ for poke in types:
         print(poke.pokemon.name)
 
 # Print all moves of the type named here.
-printS('Enter a type to see all of the moves associated with it: ')
-TYPE = input()
-type_moves = pb.type_(TYPE).moves
-for move in type_moves:
-    print(move.name)
+#printS('Enter a type to see all of the moves associated with it: ')
+#TYPE = input()
+#type_moves = pb.type_(TYPE).moves
+#for move in type_moves:
+#    print(move.name)
 
 # Get info specific to a certain pokemon
 printS('Please enter the name of your favorite pokemon: ')
 var = input()
 poke = pb.pokemon(var)
 w = str(poke.weight)
-printS(var + ' weighs a whopping ' + w + ' lbs!!!')
-printS(var + ' is in the following games: ')
+h = str(poke.height)
+id = str(poke.id)
+printS(var + 'is ' + h + ' feet tall and weighs a whopping ' + w + ' lbs!!!')
+printS(var + 'is pokemon number ' + id +', and can be the following type(s): ')
+types = poke.types
+for type in types:
+        print(type.type.name)
+printS(var + " can be found in the following games: ")
 game_ind = poke.game_indices
 for game in game_ind:
         print(game.version.name)
-
